@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="js/deck/extensions/status/deck.status.css">
     <link rel="stylesheet" href="js/deck/extensions/hash/deck.hash.css">
 
-    <link rel="stylesheet" id="style-theme-link" href="js/deck/themes/style/neon.css">
-    <link rel="stylesheet" id="transition-theme-link" href="js/deck/themes/transition/horizontal-slide.css">
+    <!--<link rel="stylesheet" id="style-theme-link" href="js/deck/themes/style/neon.css">-->
+    <link rel="stylesheet" id="transition-theme-link" href="js/deck/themes/transition/fade.css">
 
     <link rel="stylesheet" href="js/CodeMirror-2.21/lib/codemirror.css">
 
@@ -31,35 +31,56 @@
     <script src="js/deck/modernizr.custom.js"></script>
 </head>
 
-<body class="introduction">
+<body class="">
 
 <article class="deck-container">
     <section class="slide" id="title-slide">
-        <h1>&nbsp;<img src="http://lesscss.org/images/logo.png"/></h1>
+        <div class="wrap">
+            <hgroup>
+                <h1>&nbsp;<img src="http://lesscss.org/images/logo.png"/></h1>
+                <h2>The dynamic stylesheet language.</h2>
+            </hgroup>
+        </div>
     </section>
 
-    <section class="slide" id="what">
+    <section class="slide">
         <h2>What is LESS?</h2>
-            <p>LESS extends CSS</p>
+        <p>CSS Preprocessor</p>
+        <p>TODO diagram</p>
     </section>
 
-    <section class="slide" id="why">
+    <section class="slide">
         <h2>Why should I care?</h2>
-        <p>CSS is not DRY</p>
+        <p>CSS is repetitive</p>
+        <p>CSS is flat</p>
+        <p>Like writing programs in byte code</p>
     </section>
 
-    <section class="slide" id="xx">
-        <h2>LESS adds</h2>
-        <ol>
-            <li>Nested Rules</li>
-            <li>Variables</li>
-            <li>Mixins</li>
-            <li>Operations</li>
-            <li>Functions</li>
-        </ol>
+    <section class="slide">
+        <h2></h2>
+        <p>CSS Preprocessors aim to solve these issues by adding dynamic functionality and structure.</p>
     </section>
 
-    <section class="slide" id="nested-rules-why">
+    <section class="slide">
+        <h2>Some features of LESS</h2>
+    </section>
+
+    <section class="slide">
+        <h2>1. Nested Rules</h2>
+    </section>
+
+    <!--<section class="slide">-->
+        <!--<h2>LESS adds</h2>-->
+        <!--<ol>-->
+            <!--<li>Nested Rules</li>-->
+            <!--<li>Variables</li>-->
+            <!--<li>Mixins</li>-->
+            <!--<li>Operations</li>-->
+            <!--<li>Functions</li>-->
+        <!--</ol>-->
+    <!--</section>-->
+
+    <section class="slide">
         <h2>Why would I want nested rules?</h2>
         <ul>
             <li>Organization</li>
@@ -68,22 +89,122 @@
         </ul>
     </section>
 
-    <section class="slide" id="nested-rules">
+    <section class="slide">
         <h2>Nested Rules</h2>
         <textarea class="less">
 #header {
-  h1 {
-    font-size: 26px;
-    font-weight: bold;
+  color: black;
+  .navigation {
+    font-size: 12px;
   }
-  p { font-size: 12px;
-    a { text-decoration: none;
-      &:hover { border-width: 1px }
-    }
+  .logo {
+    width: 300px;
+    &:hover { text-decoration: none }
   }
 }
         </textarea>
     </section>
+
+    <section class="slide title-only">
+        <h2>2. Variables</h2>
+    </section>
+
+    <section class="slide" id="variables">
+        <h2>Variables</h2>
+        <textarea class="less">
+@color: #4D926F;
+
+#header {
+  color: @color;
+}
+h2 {
+  color: @color;
+}
+        </textarea>
+    </section>
+
+    <section class="slide title-only">
+        <h2>3. Mixins</h2>
+    </section>
+
+    <section class="slide" id="mixins">
+        <h2>Mixins</h2>
+        <textarea class="less">
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+#header {
+  .rounded-corners;
+}
+#footer {
+  .rounded-corners(10px);
+}
+        </textarea>
+    </section>
+
+    <section class="slide title-only">
+        <h2>4. Operations</h2>
+    </section>
+
+    <section class="slide" id="operations">
+        <h2>Operations</h2>
+        <textarea class="less">
+@the-border: 1px;
+@base-color: #111;
+@red:        #842210;
+
+#header {
+  color: @base-color * 3;
+  border-left: @the-border;
+  border-right: @the-border * 2;
+}
+#footer {
+  color: @base-color + #003300;
+  border-color: desaturate(@red, 10%);
+}
+
+        </textarea>
+    </section>
+
+    <section class="slide title-only">
+        <h2>5. Functions</h2>
+    </section>
+
+    <section class="slide" id="functions">
+        <h2>Functions</h2>
+        <textarea class="less">
+@the-border: 1px;
+@base-color: #111;
+@red:        #842210;
+
+#header {
+  color: @base-color * 3;
+  border-left: @the-border;
+  border-right: @the-border * 2;
+}
+#footer {
+  color: @base-color + #003300;
+  border-color: desaturate(@red, 10%);
+}
+        </textarea>
+    </section>
+
+    <section class="slide title-only">
+        <h2>TODO themes</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Other preprocessors</h2>
+        <ul>
+            <li><a href="http://sass-lang.com/">SASS</a></li>
+            <li><a href="http://learnboost.github.com/stylus/">Stylus</a></li>
+            <li><a href="http://code.google.com/p/closure-stylesheets/">Closure Stylesheets</a></li>
+        </ul>
+    </section>
+
     <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
     <a href="#" class="deck-next-link" title="Next">&#8594;</a>
 </article>
