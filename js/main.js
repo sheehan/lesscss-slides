@@ -21,7 +21,8 @@ $(function () {
 
                 this.cssEditor = CodeMirror(this.$el.find('.css-wrapper')[0], {
                     value:css,
-                    mode:'css'
+                    mode:'css',
+                    readOnly: true
                 });
             },
 
