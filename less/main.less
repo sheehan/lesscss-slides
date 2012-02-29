@@ -1,0 +1,170 @@
+.transform(@t) {
+  -webkit-transform: @t;
+  -moz-transform: @t;
+  -ms-transform: @t;
+  -o-transform: @t;
+  transform: @t;
+}
+.translate(@x, @y) {
+  .transform(translate(@x, @y));
+}
+
+.deck-container {
+  width: auto;
+  max-width: 864px;
+  margin: 16px auto 24px auto;
+  /*height: 560px;*/
+  font-size: 16px;
+}
+/*.no-boxshadow .introduction .deck-container {*/
+  /*border: 1px solid #e4e4e4;*/
+/*}*/
+/*.boxshadow .introduction .deck-container {*/
+  /*-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);*/
+  /*-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);*/
+  /*box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);*/
+/*}*/
+
+.theme-menu {
+  display: none;
+  float: left;
+  color: #888;
+  border-left: 1px solid #555;
+  border-right: 1px solid #555;
+  line-height: 32px;
+  height: 32px;
+  font-family: sans-serif;
+  padding-right: 15px;
+  margin-left: 15px;
+}
+.js .theme-menu {
+  display: block;
+}
+.theme-menu label {
+  font-size: 12px;
+  vertical-align: baseline;
+  margin: 0 4px 0 15px;
+}
+
+.deck-container {
+    margin: 0 auto;
+    padding: 0;
+    visibility: visible;
+    .editor-pair {
+        padding: 1%;
+        .less-wrapper {
+            float: left;
+            width: 49%;
+            margin-right: 2%;
+            border-color: #fff;
+            .less-header {
+                background-color: #888888;
+                border-radius: 5px 5px 0 0;
+                color: #FFFFFF;
+                padding: 5px;
+            }
+        }
+        .css-wrapper {
+            float: left;
+            width: 49%;
+            .css-header {
+                background-color: #888888;
+                border-radius: 5px 5px 0 0;
+                color: #FFFFFF;
+                padding: 5px;
+            }
+        }
+    }
+    .CodeMirror-scroll {
+        background-color: #fff;
+        padding: 10px;
+        box-shadow: 0 0 2px #333 inset;
+        border-radius: 0 0 3px 3px;
+    }
+    .slide {
+        @hpadding: 48px;
+
+        h2 {
+            border-width: 0;
+        }
+        h2.question {
+            margin: 50px 0 50px 50px;
+        }
+        p.answer {
+            margin-left: 150px;
+            margin-top: 25px;
+            font-size: 1.2em;
+        }
+        & .wrap {
+            .translate(0pt, -50%);
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 50%;
+        }
+        &#title-slide {
+            text-align: center;
+            hgroup {
+                margin-bottom: 32px;
+                h1 {
+                    -moz-transform: none;
+                    position: static;
+                    top: 50%;
+                    margin-bottom: 10px;
+                    img {
+                        margin-bottom: 0;
+                    }
+                }
+                h2 {
+                    border-width: 0;
+                    color: #999999;
+                    font-size: 24px;
+                    font-weight: 100;
+                    letter-spacing: 2px;
+                    text-shadow: 1px 1px 1px #FFFFFF;
+                }
+            }
+        }
+        &.title-only {
+            text-align: center;
+            padding: 0;
+            & > h2 {
+                border-width: 0;
+                margin-left: -1 * @hpadding;
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                padding-top: 0;
+                .translate(0pt, -50%);
+            }
+        }
+
+//        &.title-only.has-children {
+//            &.deck-previous,
+//            &.deck-before {
+//                & > h2 {
+//                    top: 10px;
+//                    .transform(none);
+//                    width: auto;
+//                }
+//            }
+//            .slide {
+//                &.deck-previous,
+//                &.deck-before {
+//                    display: none;
+//                }
+//                margin-top: 50px;
+//            }
+//        }
+    }
+}
+
+@media print {
+  header, footer {
+    display: none !important;
+  }
+
+  .introduction .deck-container {
+    font-size: 1.25em;
+  }
+}
