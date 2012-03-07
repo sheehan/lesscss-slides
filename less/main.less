@@ -5,8 +5,11 @@
   -o-transform: @t;
   transform: @t;
 }
-.translate(@x, @y) {
-  .transform(translate(@x, @y));
+
+.vertically-center {
+  position: absolute;
+  top: 50%;
+  .transform(translate(0, -50%));
 }
 
 .deck-container {
@@ -96,11 +99,9 @@
             font-size: 1.2em;
         }
         & .wrap {
-            .translate(0pt, -50%);
+            .vertically-center;
             left: 0;
-            position: absolute;
             right: 0;
-            top: 50%;
         }
         &#title-slide {
             text-align: center;
@@ -131,11 +132,15 @@
             & > h2 {
                 border-width: 0;
                 margin-left: -1 * @hpadding;
-                position: absolute;
-                top: 50%;
                 width: 100%;
                 padding-top: 0;
-                .translate(0pt, -50%);
+                .vertically-center;
+            }
+        }
+        &.has-children {
+            .deck-before,
+            .deck-previous {
+                display:none;
             }
         }
 

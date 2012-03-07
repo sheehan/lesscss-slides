@@ -38,7 +38,9 @@
         <div class="wrap">
             <hgroup>
                 <h1>&nbsp;<img src="http://lesscss.org/images/logo.png"/></h1>
+
                 <h2>The dynamic stylesheet language.</h2>
+
                 <h2>Note: This presentation is not finished.</h2>
             </hgroup>
         </div>
@@ -46,55 +48,49 @@
 
     <section class="slide">
         <h2 class="question">What is LESS?</h2>
+
         <p class="slide answer">CSS Preprocessor</p>
+
         <p class="slide answer">LESS extends CSS</p>
+
         <p class="slide answer">Compiles to CSS</p>
+
         <p class="slide answer">TODO diagram</p>
     </section>
 
     <section class="slide">
         <h2 class="question">Why should I care?</h2>
+
         <p class="slide answer">CSS is repetitive</p>
+
         <p class="slide answer">CSS is flat</p>
+
         <p class="slide answer">Like writing programs in byte code</p>
     </section>
 
     <section class="slide">
         <h2></h2>
-        <p>CSS Preprocessors aim to solve these issues by adding dynamic functionality and structure.</p>
+
+        <p>LESS addresses these issues by adding dynamic functionality and structure.</p>
     </section>
 
     <section class="slide title-only">
         <h2>Some features of LESS</h2>
     </section>
 
-    <section class="slide title-only">
+    <section class="slide has-children">
         <h2>1. Nested Rules</h2>
-    </section>
+        <section class="slide">
+            <h2>Why would I want nested rules?</h2>
+            <ul>
+                <li>Organization</li>
+                <li>Mirrors HTML structure</li>
 
-    <!--<section class="slide">-->
-        <!--<h2>LESS adds</h2>-->
-        <!--<ol>-->
-            <!--<li>Nested Rules</li>-->
-            <!--<li>Variables</li>-->
-            <!--<li>Mixins</li>-->
-            <!--<li>Operations</li>-->
-            <!--<li>Functions</li>-->
-        <!--</ol>-->
-    <!--</section>-->
+            </ul>
+        </section>
 
-    <section class="slide">
-        <h2>Why would I want nested rules?</h2>
-        <ul>
-            <li>Organization</li>
-            <li>Mirrors HTML structure</li>
-
-        </ul>
-    </section>
-
-    <section class="slide">
-        <h2>Nested Rules</h2>
-        <textarea class="less">
+        <section class="slide">
+            <pre class="less">
 #header {
   color: black;
   .navigation {
@@ -105,16 +101,14 @@
     &:hover { text-decoration: none }
   }
 }
-        </textarea>
+            </pre>
+        </section>
     </section>
 
-    <section class="slide title-only">
+    <section class="slide has-children">
         <h2>2. Variables</h2>
-    </section>
-
-    <section class="slide" id="variables">
-        <h2>Variables</h2>
-        <textarea class="less">
+        <section class="slide">
+        <pre class="less">
 @color: #4D926F;
 
 #header {
@@ -123,16 +117,15 @@
 h2 {
   color: @color;
 }
-        </textarea>
+        </pre>
+        </section>
     </section>
 
-    <section class="slide title-only">
+    <section class="slide has-children">
         <h2>3. Mixins</h2>
-    </section>
 
-    <section class="slide" id="mixins">
-        <h2>Mixins</h2>
-        <textarea class="less">
+        <section class="slide">
+            <pre class="less">
 .rounded-corners (@radius: 5px) {
   border-radius: @radius;
   -webkit-border-radius: @radius;
@@ -145,16 +138,15 @@ h2 {
 #footer {
   .rounded-corners(10px);
 }
-        </textarea>
+            </pre>
+        </section>
     </section>
 
-    <section class="slide title-only">
+
+    <section class="slide">
         <h2>4. Operations</h2>
-    </section>
-
-    <section class="slide" id="operations">
-        <h2>Operations</h2>
-        <textarea class="less">
+        <section class="slide">
+            <pre class="less">
 @the-border: 1px;
 @base-color: #111;
 @red:        #842210;
@@ -169,16 +161,16 @@ h2 {
   border-color: desaturate(@red, 10%);
 }
 
-        </textarea>
+            </pre>
+        </section>
     </section>
 
-    <section class="slide title-only">
+
+    <section class="slide has-children">
         <h2>5. Functions</h2>
-    </section>
 
-    <section class="slide" id="functions">
-        <h2>Functions</h2>
-        <textarea class="less">
+        <section class="slide">
+            <pre class="less">
 @the-border: 1px;
 @base-color: #111;
 @red:        #842210;
@@ -192,7 +184,8 @@ h2 {
   color: @base-color + #003300;
   border-color: desaturate(@red, 10%);
 }
-        </textarea>
+            </pre>
+        </section>
     </section>
 
     <section class="slide title-only">
