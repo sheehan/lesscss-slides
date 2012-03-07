@@ -47,7 +47,7 @@ $(function () {
         }.init());
     };
 
-    $('textarea.less').each(function (index, el) {
+    $('.less').each(function (index, el) {
         createEditorPair(el);
     });
 
