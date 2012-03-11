@@ -23,6 +23,8 @@
 
     <link rel="stylesheet" href="js/CodeMirror-2.21/lib/codemirror.css">
 
+    <link rel="stylesheet" href="css/layout-default-latest.css">
+
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet/less" type="text/css" href="less/main.less">
 
@@ -33,63 +35,64 @@
 
 <body class="">
 
-<article class="deck-container">
-    <section class="slide" id="title-slide">
-        <div class="wrap">
-            <hgroup>
-                <h1>&nbsp;<img src="http://lesscss.org/images/logo.png"/></h1>
+<div class="deck-container-wrapper">
+    <article class="deck-container">
+        <section class="slide" id="title-slide">
+            <div class="wrap">
+                <hgroup>
+                    <h1>&nbsp;<img src="http://lesscss.org/images/logo.png"/></h1>
 
-                <h2>The dynamic stylesheet language.</h2>
+                    <h2>The dynamic stylesheet language.</h2>
 
-                <h2>Note: This presentation is not finished.</h2>
-            </hgroup>
-        </div>
-    </section>
-
-    <section class="slide">
-        <h2 class="question">What is LESS?</h2>
-
-        <p class="slide answer">CSS Preprocessor</p>
-
-        <p class="slide answer">LESS extends CSS</p>
-
-        <p class="slide answer">Compiles to CSS</p>
-
-        <p class="slide answer">TODO diagram</p>
-    </section>
-
-    <section class="slide">
-        <h2 class="question">Why should I care?</h2>
-
-        <p class="slide answer">CSS is repetitive</p>
-
-        <p class="slide answer">CSS is flat</p>
-
-        <p class="slide answer">Like writing programs in byte code</p>
-    </section>
-
-    <section class="slide">
-        <h2></h2>
-
-        <p>LESS addresses these issues by adding dynamic functionality and structure.</p>
-    </section>
-
-    <section class="slide title-only">
-        <h2>Some features of LESS</h2>
-    </section>
-
-    <section class="slide has-children">
-        <h2>1. Nested Rules</h2>
-        <section class="slide">
-            <h2>Why would I want nested rules?</h2>
-            <ul>
-                <li>Organization</li>
-                <li>Mirrors HTML structure</li>
-
-            </ul>
+                    <h2>Note: This presentation is not finished.</h2>
+                </hgroup>
+            </div>
         </section>
 
         <section class="slide">
+            <h2 class="question">What is LESS?</h2>
+
+            <p class="slide answer">CSS Preprocessor</p>
+
+            <p class="slide answer">LESS extends CSS</p>
+
+            <p class="slide answer">Compiles to CSS</p>
+
+            <p class="slide answer">TODO diagram</p>
+        </section>
+
+        <section class="slide">
+            <h2 class="question">Why should I care?</h2>
+
+            <p class="slide answer">CSS is repetitive</p>
+
+            <p class="slide answer">CSS is flat</p>
+
+            <p class="slide answer">Like writing programs in byte code</p>
+        </section>
+
+        <section class="slide">
+            <h2></h2>
+
+            <p>LESS addresses these issues by adding dynamic functionality and structure.</p>
+        </section>
+
+        <section class="slide title-only">
+            <h2>Some features of LESS</h2>
+        </section>
+
+        <section class="slide has-children">
+            <h2>1. Nested Rules</h2>
+            <section class="slide">
+                <h2>Why would I want nested rules?</h2>
+                <ul>
+                    <li>Organization</li>
+                    <li>Mirrors HTML structure</li>
+
+                </ul>
+            </section>
+
+            <section class="slide">
             <pre class="less">
 #header {
   color: black;
@@ -102,12 +105,24 @@
   }
 }
             </pre>
+            </section>
         </section>
-    </section>
 
-    <section class="slide has-children">
-        <h2>2. Variables</h2>
-        <section class="slide">
+        <section class="slide has-children">
+            <h2>2. Variables</h2>
+            <section class="slide">
+            <pre>
+                @nice-blue: #5B83AD;
+            </pre>
+            </section>
+            <section class="slide">
+                <h2>Some shit about variables:</h2>
+                <ul>
+                    <li class="slide">Variables are constant</li>
+                    <li class="slide">Variables have block-level scope</li>
+                </ul>
+            </section>
+            <section class="slide">
         <pre class="less">
 @color: #4D926F;
 
@@ -118,13 +133,13 @@ h2 {
   color: @color;
 }
         </pre>
+            </section>
         </section>
-    </section>
 
-    <section class="slide has-children">
-        <h2>3. Mixins</h2>
+        <section class="slide has-children">
+            <h2>3. Mixins</h2>
 
-        <section class="slide">
+            <section class="slide">
             <pre class="less">
 .rounded-corners (@radius: 5px) {
   border-radius: @radius;
@@ -139,13 +154,13 @@ h2 {
   .rounded-corners(10px);
 }
             </pre>
+            </section>
         </section>
-    </section>
 
 
-    <section class="slide">
-        <h2>4. Operations</h2>
         <section class="slide">
+            <h2>4. Operations</h2>
+            <section class="slide">
             <pre class="less">
 @the-border: 1px;
 @base-color: #111;
@@ -162,14 +177,14 @@ h2 {
 }
 
             </pre>
+            </section>
         </section>
-    </section>
 
 
-    <section class="slide has-children">
-        <h2>5. Functions</h2>
+        <section class="slide has-children">
+            <h2>5. Functions</h2>
 
-        <section class="slide">
+            <section class="slide">
             <pre class="less">
 @the-border: 1px;
 @base-color: #111;
@@ -185,27 +200,33 @@ h2 {
   border-color: desaturate(@red, 10%);
 }
             </pre>
+            </section>
         </section>
-    </section>
 
-    <section class="slide title-only">
-        <h2>TODO themes</h2>
-    </section>
+        <section class="slide title-only">
+            <h2>TODO themes</h2>
+        </section>
 
-    <section class="slide">
-        <h2>Other preprocessors</h2>
-        <ul>
-            <li><a href="http://sass-lang.com/">SASS</a></li>
-            <li><a href="http://learnboost.github.com/stylus/">Stylus</a></li>
-            <li><a href="http://code.google.com/p/closure-stylesheets/">Closure Stylesheets</a></li>
-        </ul>
-    </section>
+        <section class="slide">
+            <h2>Other preprocessors</h2>
+            <ul>
+                <li><a href="http://sass-lang.com/">SASS</a></li>
+                <li><a href="http://learnboost.github.com/stylus/">Stylus</a></li>
+                <li><a href="http://code.google.com/p/closure-stylesheets/">Closure Stylesheets</a></li>
+            </ul>
+        </section>
 
-    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
-    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
-</article>
+        <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+        <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </article>
+</div>
+
+<div class="editors-wrapper">
+</div>
 
 <script src="js/deck/jquery-1.7.min.js"></script>
+<script src="js/jquery-ui-1.8.18.custom.min.js"></script>
+<script src="js/jquery.layout-latest.js"></script>
 
 <!-- Deck Core and extensions -->
 <script src="js/deck/core/deck.core.js"></script>

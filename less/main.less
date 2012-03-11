@@ -49,6 +49,24 @@
   margin: 0 4px 0 15px;
 }
 
+.deck-container-wrapper {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  color: #444;
+  line-height: 1.25;
+  background-color: transparent;
+}
+
+.ui-layout-pane {
+    border: 0;
+    padding: 0;
+}
+
+
+.CodeMirror-scroll {
+    height: auto;
+    overflow: visible;
+}
+
 .deck-container {
     margin: 0 auto;
     padding: 0;
@@ -77,12 +95,6 @@
                 padding: 5px;
             }
         }
-    }
-    .CodeMirror-scroll {
-        background-color: #fff;
-        padding: 10px;
-        box-shadow: 0 0 2px #333 inset;
-        border-radius: 0 0 3px 3px;
     }
     .slide {
         @hpadding: 48px;
@@ -137,12 +149,12 @@
                 .vertically-center;
             }
         }
-        &.has-children {
-            .deck-before,
-            .deck-previous {
-                display:none;
-            }
-        }
+//        &.has-children {
+//            .deck-before:not(.deck-child-current),
+//            .deck-previous:not(.deck-child-current) {
+//                display:none;
+//            }
+//        }
 
 //        &.title-only.has-children {
 //            &.deck-previous,
