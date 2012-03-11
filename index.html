@@ -255,11 +255,11 @@ h2 {
                 <li class="slide">
                     Math functions
                     <pre class="less">
-.example1 {
-  width: round(50px / 3);
-  margin: ceil(5em / 3);
+.example {
+  width:   round(50px / 3);
+  margin:  ceil(5em / 3);
   padding: floor(10in / 4);
-  height: percentage(1 / 5);
+  height:  percentage(1 / 5);
 }
                     </pre>
                 </li>
@@ -267,12 +267,13 @@ h2 {
                     Color functions
                     <pre class="less">
 @base-color: #111;
-
-#header {
-  color: @base-color * 3;
-}
-#footer {
-  color: @base-color + #003300;
+.example {
+  color:               @base-color;
+  border-top-color:    lighten(@base-color, 20%);
+  border-right-color:  darken(@base-color, 20%);
+  border-bottom-color: saturate(@base-color, 20%);
+  border-left-color:   desaturate(@base-color, 20%);
+  background-color:    fade(@base-color, 20%);
 }
                     </pre>
                 </li>
@@ -314,6 +315,16 @@ grails install-plugin lesscss-resources
     resource url:'css/normal2.css'
 }
             </pre>
+        </section>
+
+        <section class="slide">
+            <h2>3rd Party Mixin Libraries</h2>
+            <ul>
+                <li class="slide"><a href="http://markdotto.com/bootstrap/">Preboot.less</a></li>
+                <li class="slide"><a href="https://github.com/jdmiller82/-lessins-">-lessins-</a></li>
+                <li class="slide"><a href="http://lesselements.com/">LESS Elements</a></li>
+                <li class="slide"><a href="https://github.com/MatthewWagerfield/LESS-CSS3-Mixins">LESS-CSS3-Mixins</a></li>
+            </ul>
         </section>
 
         <section class="slide">

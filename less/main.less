@@ -1,3 +1,6 @@
+@link-color: #607890;
+@link-color-hover: #003366;
+
 .transform(@t) {
   -webkit-transform: @t;
   -moz-transform: @t;
@@ -226,9 +229,21 @@
         border: 1px solid #AAAAAA;
         box-shadow: 0 0 3px #666;
         color: #444;
+        a {
+            color: @link-color;
+            &:hover {
+                color: @link-color-hover;
+            }
+        }
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
-
 
 @media print {
   header, footer {
