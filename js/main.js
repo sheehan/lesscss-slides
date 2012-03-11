@@ -1,3 +1,9 @@
+if ("undefined" === typeof window.console) {
+    window.console = {
+        "log": function() { }
+    };
+};
+
 $(function () {
 //    var mainLayout = $('body').layout({
 //        fxName: 'slide',
