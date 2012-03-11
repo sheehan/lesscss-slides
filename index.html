@@ -124,7 +124,6 @@ h2 {
         <section class="slide has-children">
             <h2>3. Mixins</h2>
 
-            <section class="slide">
             <ul>
                 <li class="slide">
                     Mix-in properties from another ruleset
@@ -185,58 +184,99 @@ h2 {
   -moz-box-shadow: @arguments;
   -webkit-box-shadow: @arguments;
 }
-                        
+
 .box-shadow(2px, 5px);
                     </pre>
                 </li>
+                <li class="slide">
+                    Guards
+                    <pre class="less">
+.mixin (@a) when (lightness(@a) >= 50%) {
+  background-color: black;
+}
+
+.mixin (@a) when (lightness(@a) < 50%) {
+  background-color: white;
+}
+
+.mixin (@a) {
+  color: @a;
+}
+
+.class1 { .mixin(#ddd) }
+
+.class2 { .mixin(#555) }
+                    </pre>
+                </li>
             </ul>
-            </section>
         </section>
 
 
         <section class="slide">
             <h2>4. Operations</h2>
-            <section class="slide">
-            <pre class="less">
-@the-border: 1px;
+            <ul>
+                <li class="slide">
+                    Operations on units
+                    <pre class="less">
+@border: 1px;
+@thicker-border: @border + 3px;
+
+#header {
+  border-left: @border;
+  border-right: @border * 2;
+  border-top: @thicker-border;
+}
+
+#footer {
+  border: @thicker-border solid black;
+}
+                    </pre>
+                </li>
+                <li class="slide">
+                    Operations on colors
+                    <pre class="less">
 @base-color: #111;
-@red:        #842210;
 
 #header {
   color: @base-color * 3;
-  border-left: @the-border;
-  border-right: @the-border * 2;
 }
 #footer {
   color: @base-color + #003300;
-  border-color: desaturate(@red, 10%);
 }
-
-            </pre>
-            </section>
+                    </pre>
+                </li>
+            </ul>
         </section>
 
 
         <section class="slide has-children">
             <h2>5. Functions</h2>
-
-            <section class="slide">
-            <pre class="less">
-@the-border: 1px;
+            <ul>
+                <li class="slide">
+                    Math functions
+                    <pre class="less">
+.example1 {
+  width: round(50px / 3);
+  margin: ceil(5em / 3);
+  padding: floor(10in / 4);
+  height: percentage(1 / 5);
+}
+                    </pre>
+                </li>
+                <li class="slide">
+                    Color functions
+                    <pre class="less">
 @base-color: #111;
-@red:        #842210;
 
 #header {
   color: @base-color * 3;
-  border-left: @the-border;
-  border-right: @the-border * 2;
 }
 #footer {
   color: @base-color + #003300;
-  border-color: desaturate(@red, 10%);
 }
-            </pre>
-            </section>
+                    </pre>
+                </li>
+            </ul>
         </section>
 
         <section class="slide title-only">
