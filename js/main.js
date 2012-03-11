@@ -1,5 +1,6 @@
 $(function () {
     var mainLayout = $('body').layout({
+        fxName: 'slide',
         center__paneSelector:'.deck-container-wrapper',
         east__paneSelector:'.editors-wrapper',
         east__size:400,
@@ -9,6 +10,7 @@ $(function () {
     });
 
     $.deck('.slide');
+    console.log(mainLayout);
 
     var createEditorPair = function (el) {
         return ({
@@ -80,11 +82,16 @@ $(function () {
 
     var processSlide = function($slide) {
         var less = $slide.children('.less').hide().text();
+        if (!less) {
+            less = $slide.parents('.slide').children('.less').first().hide().text();
+        }
         if (less) {
-            mainLayout.open('east');
+            mainLayout.resizers.east.css('opacity', 1);
+            mainLayout.panes.east.css('opacity', 1);
             editorPair.setLess(less);
         } else {
-            mainLayout.close('east');
+            mainLayout.resizers.east.css('opacity', 0);
+            mainLayout.panes.east.css('opacity', 0);
         }
     };
 
@@ -93,9 +100,4 @@ $(function () {
     });
 
     processSlide($.deck('getSlide'));
-
-//    $('.less').each(function (index, el) {
-//        createEditorPair(el);
-//    });
-
 });

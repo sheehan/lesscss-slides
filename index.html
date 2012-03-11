@@ -56,6 +56,8 @@
 
             <p class="slide answer">LESS extends CSS</p>
 
+            <p class="slide answer">CSS is valid LESS</p>
+
             <p class="slide answer">Compiles to CSS</p>
 
             <p class="slide answer">TODO diagram</p>
@@ -84,16 +86,7 @@
         <section class="slide has-children">
             <h2>1. Nested Rules</h2>
             <section class="slide">
-                <h2>Why would I want nested rules?</h2>
-                <ul>
-                    <li>Organization</li>
-                    <li>Mirrors HTML structure</li>
-
-                </ul>
-            </section>
-
-            <section class="slide">
-            <pre class="less">
+                <pre class="less">
 #header {
   color: black;
   .navigation {
@@ -104,26 +97,18 @@
     &:hover { text-decoration: none }
   }
 }
-            </pre>
+                </pre>
+                <ul>
+                    <li class="slide">Provide organization</li>
+                    <li class="slide">Mirrors HTML structure</li>
+                </ul>
             </section>
         </section>
 
         <section class="slide has-children">
             <h2>2. Variables</h2>
             <section class="slide">
-            <pre>
-                @nice-blue: #5B83AD;
-            </pre>
-            </section>
-            <section class="slide">
-                <h2>Some shit about variables:</h2>
-                <ul>
-                    <li class="slide">Variables are constant</li>
-                    <li class="slide">Variables have block-level scope</li>
-                </ul>
-            </section>
-            <section class="slide">
-        <pre class="less">
+                <pre class="less">
 @color: #4D926F;
 
 #header {
@@ -132,7 +117,11 @@
 h2 {
   color: @color;
 }
-        </pre>
+                </pre>
+                <ul>
+                    <li class="slide">Variables are constant</li>
+                    <li class="slide">Variables have block-level scope</li>
+                </ul>
             </section>
         </section>
 
@@ -205,6 +194,39 @@ h2 {
 
         <section class="slide title-only">
             <h2>TODO themes</h2>
+        </section>
+
+        <section class="slide title-only">
+            <h2>Using LESS in Grails</h2>
+        </section>
+
+        <section class="slide">
+            <h2>LESS in Grails</h2>
+            <pre class="fancy">
+grails install-plugin lesscss
+            </pre>
+            <pre class="fancy">
+&lt;html&gt;
+&lt;head&gt;
+    ...
+    &lt;less:stylesheet name="your_stylesheet" /&gt;
+    &lt;less:scripts /&gt;
+&lt;/head&gt;
+            </pre>
+        </section>
+
+        <section class="slide">
+            <h2>LESS in Grails using Resources Plugin</h2>
+            <pre class="fancy">
+grails install-plugin lesscss-resources
+            </pre>
+            <pre class="fancy">
+'style' {
+    resource url:'less/test.less', attrs:[rel: 'stylesheet/less', type:'css']
+    resource url:'css/normal.css'
+    resource url:'css/normal2.css'
+}
+            </pre>
         </section>
 
         <section class="slide">
