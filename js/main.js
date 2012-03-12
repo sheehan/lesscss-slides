@@ -90,7 +90,7 @@ $(function () {
             less = $slide.parents('.slide').children('.less').first().text();
         }
         if (less) {
-            $('.editors-wrapper').removeClass('hidden');
+            $('.editors-wrapper').show().removeClass('hidden');
             editorPair.setLess(less);
         } else {
             $('.editors-wrapper').addClass('hidden');

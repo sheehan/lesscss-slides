@@ -53,10 +53,9 @@
             <h2>What is LESS?</h2>
             <ul>
                 <li class="slide">CSS Preprocessor</li>
-                <li class="slide">Extenstion of CSS</li>
-                <li class="slide">CSS is valid LESS</li>
+                <li class="slide">Extension of CSS</li>
+                <li class="slide">Superset of CSS3 syntax</li>
                 <li class="slide">Compiles to CSS</li>
-                <li class="slide">TODO diagram</li>
             </ul>
         </section>
 
@@ -80,7 +79,7 @@
         </section>
 
         <section class="slide has-children">
-            <h2>Nested Rules</h2>
+            <h2>1. Nested Rules</h2>
             <section class="slide">
                 <pre class="less">
 #header {
@@ -95,14 +94,15 @@
 }
                 </pre>
                 <ul>
-                    <li class="slide">Provide organization</li>
+                    <li class="slide">Avoids repetition</li>
+                    <li class="slide">Provides organization</li>
                     <li class="slide">Mirrors HTML structure</li>
                 </ul>
             </section>
         </section>
 
         <section class="slide has-children">
-            <h2>Variables</h2>
+            <h2>2. Variables</h2>
             <section class="slide">
                 <pre class="less">
 @color: #4D926F;
@@ -122,7 +122,7 @@ h2 {
         </section>
 
         <section class="slide has-children">
-            <h2>Mixins</h2>
+            <h2>3. Mixins</h2>
 
             <ul>
                 <li class="slide">
@@ -213,7 +213,7 @@ h2 {
 
 
         <section class="slide">
-            <h2>Operations</h2>
+            <h2>4. Operations</h2>
             <ul>
                 <li class="slide">
                     Operations on units
@@ -250,7 +250,7 @@ h2 {
 
 
         <section class="slide has-children">
-            <h2>Functions</h2>
+            <h2>5. Functions</h2>
             <ul>
                 <li class="slide">
                     Math functions
@@ -280,16 +280,19 @@ h2 {
             </ul>
         </section>
 
-        <section class="slide title-only">
-            <h2>TODO themes</h2>
-        </section>
-
-        <section class="slide title-only">
-            <h2>Using LESS in Grails</h2>
-        </section>
-
         <section class="slide">
-            <h2>LESS in Grails</h2>
+            <h2>Compiling LESS</h2>
+            <ul>
+                <li class="slide">Parser written in JavaScript</li>
+                <li class="slide">Can compile in browser (dev mode)</li>
+                <li class="slide">Node.js</li>
+                <li class="slide">Other implementations: .NET, PHP, python, etc...</li>
+                <li class="slide">Desktop apps: CodeKit, LESS.app</li>
+            </ul>
+        </section>
+
+        <section class="slide" id="less-in-grails">
+            <h2>LESS in Grails: Less CSS Plugin</h2>
             <pre class="fancy">
 grails install-plugin lesscss
             </pre>
@@ -303,8 +306,8 @@ grails install-plugin lesscss
             </pre>
         </section>
 
-        <section class="slide">
-            <h2>LESS in Grails using Resources Plugin</h2>
+        <section class="slide" id="less-in-grails-resources">
+            <h2>LESS in Grails: Less CSS Resources Plugin</h2>
             <pre class="fancy">
 grails install-plugin lesscss-resources
             </pre>
@@ -328,6 +331,18 @@ grails install-plugin lesscss-resources
         </section>
 
         <section class="slide">
+            <h2>Negatives</h2>
+            <ul>
+                <li class="slide">Long selectors</li>
+                <li class="slide">Debugging</li>
+            </ul>
+        </section>
+
+        <section class="slide title-only">
+            <h2>Risk?</h2>
+        </section>
+
+        <section class="slide">
             <h2>LESS Alternatives</h2>
             <ul>
                 <li class="slide"><a href="http://sass-lang.com/">SASS</a></li>
@@ -344,7 +359,7 @@ grails install-plugin lesscss-resources
         <a href="#" class="deck-next-link" title="Next">&#8594;</a>
     </article>
 
-    <div class="editors-wrapper">
+    <div class="editors-wrapper" style="display: none;">
         <div class="editors">
             <div class="less-editor">
                 <div class="header">LESS <span>[editable]</span></div>
