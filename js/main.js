@@ -6,12 +6,12 @@ if ("undefined" === typeof window.console) {
 
 $(function () {
 //    var mainLayout = $('body').layout({
-//        fxName: 'slide',
+////        fxName: 'slide',
 //        center__paneSelector:'.deck-container-wrapper',
-//        east__paneSelector:'.editors-wrapper',
-//        east__size:400,
+//        south__paneSelector:'.editors-wrapper',
+//        south__size:300,
 //        onresize:function () {
-//            $(document).trigger('mainLayout.resize');
+////            $(document).trigger('mainLayout.resize');
 //        }
 //    });
 
@@ -26,7 +26,7 @@ $(function () {
 
 //                this.$el = $('<div class="editor-pair"><div class="less-wrapper"><div class="less-header">LESS</div></div><div class="css-wrapper"><div class="css-header">CSS</div></div></div>').replaceAll(el);
                 this.$el = $(el);
-                this.$el.html('<div class="editors"><div class="less"></div><div class="css"></div></div>');
+//                this.$el.html('<div class="editors"><div class="less"></div><div class="css"></div></div>');
 
 //                var innerLayout = this.$el.find('.editors').height('100%').layout({
 //                    center__paneSelector:'.less',
@@ -36,15 +36,17 @@ $(function () {
 //                $(document).bind('mainLayout.resize', function() {
 //                    innerLayout.resizeAll();
 //                });
-                this.lessEditor = CodeMirror(this.$el.find('.less')[0], {
+                this.lessEditor = CodeMirror(this.$el.find('.less-editor .code')[0], {
                     mode:'css',
                     onUpdate:this.syncEditors.bind(this),
+                    lineNumbers: true,
                     onKeyEvent: function(editor, event) {
                         $.Event(event).stopPropagation();
                     }
                 });
-                this.cssEditor = CodeMirror(this.$el.find('.css')[0], {
+                this.cssEditor = CodeMirror(this.$el.find('.css-editor .code')[0], {
                     mode:'css',
+                    lineNumbers: true,
                     readOnly:true
                 });
 

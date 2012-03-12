@@ -17,7 +17,7 @@
 
 .deck-container {
   width: auto;
-  max-width: 864px;
+  max-width: 1200px;
   margin: 16px auto 24px auto;
   font-size: 16px;
 }
@@ -55,24 +55,62 @@
     padding: 0;
 }
 
-@deck-container-width: 70%;
 .deck-container-wrapper {
-    float: left;
-    height: 100%;
-    width: @deck-container-width;
 }
 
+@editors-width: 950px;
+@editors-spacing: 15px;
 .editors-wrapper {
-    float: left;
-    height: 100%;
-    width: 100% - @deck-container-width;
+    background-color: transparent;
     .editors {
-        & > .less {
-            height: 50%;
+        margin: 0 auto;
+        width: @editors-width;
+        & > .less-editor {
+            margin-top: 5px;
+            width: (@editors-width - @editors-spacing) / 2;
+            /*height: 100%;*/
+            float: left;
+            overflow: auto;
+            margin-right: @editors-spacing / 2;
+            box-shadow: 0 0 2px;
+            border-radius: 10px 10px 0 0;
         }
-        & > .css {
-            height: 50%;
+        & > .css-editor {
+            margin-top: 5px;
+            width: (@editors-width - @editors-spacing) / 2;
+            /*height: 100%;*/
+            float: left;
+            overflow: auto;
+            margin-left: @editors-spacing / 2;
+            box-shadow: 0 0 2px;
+            border-radius: 10px 10px 0 0;
         }
+        .header {
+            background-color: gray;
+            color: #FFFFFF;
+            padding: 5px 15px;
+            span {
+                float: right;
+            }
+        }
+        .code {
+            background-color: #fff;
+            height: 220px;
+            .CodeMirror-scroll {
+                height: 220px;
+            }
+        }
+    }
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.ui-layout-resizer {
+    opacity: 0;
+    &:hover {
+        opacity: 1;
     }
 }
 
