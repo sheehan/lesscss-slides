@@ -90,10 +90,10 @@ $(function () {
             less = $slide.parents('.slide').children('.less').first().text();
         }
         if (less) {
-            $('.editors-wrapper').css('opacity', 1);
+            $('.editors-wrapper').removeClass('hidden');
             editorPair.setLess(less);
         } else {
-            $('.editors-wrapper').css('opacity', 0);
+            $('.editors-wrapper').addClass('hidden');
         }
     };
 
