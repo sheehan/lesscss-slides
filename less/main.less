@@ -2,6 +2,7 @@
 
 @link-color: #607890;
 @link-color-hover: #003366;
+@slide-width: 1200px;
 
 .transform(@t) {
   -webkit-transform: @t;
@@ -11,7 +12,7 @@
   transform: @t;
 }
 
-.vertically-center {
+.vertically-center() {
   position: absolute;
   top: 50%;
   .transform(translate(0, -50%));
@@ -19,12 +20,11 @@
 
 .deck-container-wrapper {
     @height: 500px;
-    @width: 1200px;
     height: @height;
-    width: @width;
+    width: @slide-width;
     position: relative;
     top: 50%;
-    margin: (-@height / 2) auto 0;
+    margin: -(@height / 2) auto 0;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     color: #444;
     line-height: 1.25;
@@ -36,34 +36,32 @@
     }
 }
 
-@editors-width: 950px;
-@editors-spacing: 25px;
 .editors-wrapper {
+    @editors-width: 950px;
+    @editors-spacing: 25px;
     background-color: transparent;
     .editors {
         margin: 0 auto;
         width: @editors-width;
+        .editor {
+              margin-top: 5px;
+              width: (@editors-width - @editors-spacing) / 2;
+              float: left;
+              overflow: auto;
+              box-shadow: 0 0 2px;
+              border-radius: 10px;
+        }
         & > .less-editor {
-            margin-top: 5px;
-            width: (@editors-width - @editors-spacing) / 2;
-            float: left;
-            overflow: auto;
+            .editor();
             margin-right: @editors-spacing / 2;
-            box-shadow: 0 0 2px;
-            border-radius: 10px;
         }
         & > .css-editor {
-            margin-top: 5px;
-            width: (@editors-width - @editors-spacing) / 2;
-            float: left;
-            overflow: auto;
+            .editor();
             margin-left: @editors-spacing / 2;
-            box-shadow: 0 0 2px;
-            border-radius: 10px;
         }
         .header {
             @color: #888;
-            #gradient > .vertical(@color,darken(@color, 20%));
+            #gradient > .vertical(@color, darken(@color, 20%));
             color: #FFFFFF;
             padding: 5px 15px;
             span {
@@ -76,22 +74,20 @@
             overflow: auto;
             .CodeMirror-scroll {
                 height: 275px;
+                overflow: visible;
             }
         }
     }
     position: absolute;
     bottom: 2px;
-    width: 100%;
+    width: @editors-width;
+    margin-left: (@slide-width - @editors-width) / 2;
     z-index: 5;
     .transition(opacity 500ms ease-in-out 0ms);
     &.hidden {
         opacity: 0;
         z-index: -1;
     }
-}
-.CodeMirror-scroll {
-    height: auto;
-    overflow: visible;
 }
 
 .deck-container {
@@ -154,9 +150,9 @@
             font-size: 1.2em;
             color: #444;
             &.deck-before, &.deck-previous {
-                color: #999;
+                /*color: #666;*/
                 a {
-                    color: inherit;
+                    /*color: inherit;*/
                     &:hover {
                         color: @link-color-hover;
                     }
@@ -207,20 +203,3 @@
     }
 }
 
-.editors.ui-layout-container {
-    background-color: transparent;
-}
-.editors > .less,
-.editors > .css {
-    background-color: #fff;
-}
-
-@media print {
-  header, footer {
-    display: none !important;
-  }
-
-  .introduction .deck-container {
-    font-size: 1.25em;
-  }
-}

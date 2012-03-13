@@ -23,8 +23,6 @@
 
     <link rel="stylesheet" href="js/CodeMirror-2.21/lib/codemirror.css">
 
-    <link rel="stylesheet" href="css/layout-default-latest.css">
-
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet/less" type="text/css" href="less/main.less">
 
@@ -58,18 +56,20 @@
         </section>
 
         <section class="slide">
-            <h2 class="question">Why should I care?</h2>
+            <h2 class="question">What's wrong with normal CSS?</h2>
             <ul>
-                <li class="slide answer">CSS is repetitive</li>
-                <li class="slide answer">CSS is flat</li>
-                <li class="slide answer">Like writing programs in byte code</li>
+                <li class="slide">CSS is repetitive</li>
+                <li class="slide">CSS has a flat structure</li>
+                <li class="slide">Low level</li>
             </ul>
         </section>
 
         <section class="slide">
-            <h2></h2>
-
-            <p>LESS addresses these issues by adding dynamic functionality and structure.</p>
+            <h2>How does LESS help?</h2>
+            <ul>
+                <li class="slide">Adds structure</li>
+                <li class="slide">Adds dynamic functionality</li>
+            </ul>
         </section>
 
         <section class="slide title-only">
@@ -113,8 +113,37 @@ h2 {
 }
                 </pre>
                 <ul>
-                    <li class="slide">Variables are constants</li>
-                    <li class="slide">Variables have block-level scope</li>
+                    <li class="slide">
+                        Variables are constants
+                        <pre class="less">
+@color: #4D926F;
+
+#header {
+  color: @color;
+}
+
+@color: #ccffcc;
+
+h2 {
+  color: @color;
+}
+                        </pre>
+                    </li>
+                    <li class="slide">
+                        Variables have block-level scope
+                        <pre class="less">
+@color: #4D926F;
+
+#header {
+  color: @color;
+}
+
+h2 {
+  @color: #ccffcc;
+  color: @color;
+}
+                        </pre>
+                    </li>
                 </ul>
             </section>
         </section>
@@ -319,7 +348,7 @@ grails install-plugin lesscss-resources
         </section>
 
         <section class="slide">
-            <h2>3rd Party Mixin Libraries</h2>
+            <h2>3rd party mixin libraries</h2>
             <ul>
                 <li class="slide"><a href="http://markdotto.com/bootstrap/">Preboot.less</a></li>
                 <li class="slide"><a href="https://github.com/jdmiller82/-lessins-">-lessins-</a></li>
@@ -341,7 +370,7 @@ grails install-plugin lesscss-resources
         </section>
 
         <section class="slide">
-            <h2>LESS Alternatives</h2>
+            <h2>LESS alternatives</h2>
             <ul>
                 <li class="slide"><a href="http://sass-lang.com/">SASS</a></li>
                 <li class="slide"><a href="http://learnboost.github.com/stylus/">Stylus</a></li>
@@ -349,8 +378,11 @@ grails install-plugin lesscss-resources
             </ul>
         </section>
 
-        <section class="slide title-only">
+        <section class="slide">
             <h2>Questions?</h2>
+            <pre class="less">
+// Ask me some fucking questions!
+            </pre>
         </section>
 
         <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
@@ -364,7 +396,7 @@ grails install-plugin lesscss-resources
                 <div class="code"></div>
             </div>
             <div class="css-editor">
-                <div class="header">CSS</div>
+                <div class="header">Compiled CSS</div>
                 <div class="code"></div>
             </div>
         </div>
@@ -373,8 +405,6 @@ grails install-plugin lesscss-resources
 
 
 <script src="js/deck/jquery-1.7.min.js"></script>
-<script src="js/jquery-ui-1.8.18.custom.min.js"></script>
-<script src="js/jquery.layout-latest.js"></script>
 
 <!-- Deck Core and extensions -->
 <script src="js/deck/core/deck.core.js"></script>
