@@ -54,6 +54,9 @@
         & > .less-editor {
             .editor();
             margin-right: @editors-spacing / 2;
+            &.error .header span.title {
+              color: red;
+            }
         }
         & > .css-editor {
             .editor();
@@ -64,7 +67,7 @@
             #gradient > .vertical(@color, darken(@color, 20%));
             color: #FFFFFF;
             padding: 5px 15px;
-            span {
+            span.editable {
                 float: right;
             }
         }

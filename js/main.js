@@ -5,16 +5,6 @@ if ("undefined" === typeof window.console) {
 };
 
 $(function () {
-//    var mainLayout = $('body').layout({
-////        fxName: 'slide',
-//        center__paneSelector:'.deck-container-wrapper',
-//        south__paneSelector:'.editors-wrapper',
-//        south__size:300,
-//        onresize:function () {
-////            $(document).trigger('mainLayout.resize');
-//        }
-//    });
-
     $.deck('.slide');
     less.watch();
     $('.slide .less').hide();
@@ -23,23 +13,11 @@ $(function () {
         return ({
             init:function () {
                 this.parser = new (less.Parser);
-
-//                this.$el = $('<div class="editor-pair"><div class="less-wrapper"><div class="less-header">LESS</div></div><div class="css-wrapper"><div class="css-header">CSS</div></div></div>').replaceAll(el);
                 this.$el = $(el);
-//                this.$el.html('<div class="editors"><div class="less"></div><div class="css"></div></div>');
-
-//                var innerLayout = this.$el.find('.editors').height('100%').layout({
-//                    center__paneSelector:'.less',
-//                    south__paneSelector:'.css',
-//                    south__size:'50%'
-//                });
-//                $(document).bind('mainLayout.resize', function() {
-//                    innerLayout.resizeAll();
-//                });
                 this.lessEditor = CodeMirror(this.$el.find('.less-editor .code')[0], {
                     mode:'css',
-                    onUpdate:this.syncEditors.bind(this),
                     lineNumbers: true,
+                    onUpdate:this.syncEditors.bind(this),
                     onKeyEvent: function(editor, event) {
                         $.Event(event).stopPropagation();
                     }
@@ -69,13 +47,20 @@ $(function () {
 
             parseCss:function (lessCode) {
                 var css = null;
+                var $lessEditor = this.$el.find('.less-editor');
                 try {
-                    this.parser.parse(lessCode, function (err, tree) {
+                    this.parser.parse(lessCode, $.proxy(function (err, tree) {
                         if (!err) {
+                            $lessEditor.removeClass('error');
                             css = tree.toCSS();
+                        } else {
+                            $lessEditor.addClass('error');
                         }
-                    });
-                } catch (e) { console.log(e); }
+                    }, this));
+                } catch (e) {     
+                    $lessEditor.addClass('error');
+                    console.log(e); 
+                }
                 return css;
             }
         }.init());
