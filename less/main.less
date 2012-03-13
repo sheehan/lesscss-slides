@@ -33,6 +33,91 @@
     .deck-container {
       width: auto;
       font-size: 16px;
+      margin: 0 auto;
+      padding: 0;
+      visibility: visible;
+      .slide {
+          @hpadding: 48px;
+          h2 {
+              border-width: 0;
+          }
+          & .wrap {
+              .vertically-center;
+              left: 0;
+              right: 0;
+          }
+          &#title-slide {
+              text-align: center;
+              hgroup {
+                  margin-bottom: 32px;
+                  h1 {
+                      -moz-transform: none;
+                      position: static;
+                      top: 50%;
+                      margin-bottom: 10px;
+                      img {
+                          margin-bottom: 0;
+                      }
+                  }
+                  h2 {
+                      border-width: 0;
+                      color: #999999;
+                      font-size: 24px;
+                      font-weight: 100;
+                      letter-spacing: 2px;
+                      text-shadow: 1px 1px 1px #FFFFFF;
+                  }
+              }
+          }
+          &.title-only {
+              text-align: center;
+              padding: 0;
+              & > h2 {
+                  border-width: 0;
+                  margin-left: -1 * @hpadding;
+                  width: 100%;
+                  padding-top: 0;
+                  .vertically-center;
+              }
+          }
+          li {
+              background-color: #FFFFFF;
+              border: 1px solid #ccc;
+              border-radius: 20px;
+              float: left;
+              /*clear: left;*/
+              padding: 10px 20px;
+              list-style-type: none;
+              margin: 0 20px 20px 0;
+              font-size: 1.2em;
+              color: #444;
+              &.deck-before, &.deck-previous {
+                  /*color: #666;*/
+                  a {
+                      /*color: inherit;*/
+                      &:hover {
+                          color: @link-color-hover;
+                      }
+                  }
+              }
+              &.deck-current {
+                  border: 1px solid #AAAAAA;
+                  box-shadow: 0 0 7px #666;
+                  a {
+                      color: @link-color;
+                      &:hover {
+                          color: @link-color-hover;
+                      }
+                  }
+              }
+              a {
+                  text-decoration: none;
+                  &:hover {
+                      text-decoration: underline;
+                  }
+              }
+          }
+      }
     }
 }
 
@@ -90,94 +175,6 @@
     &.hidden {
         opacity: 0;
         z-index: -1;
-    }
-}
-
-.deck-container {
-    margin: 0 auto;
-    padding: 0;
-    visibility: visible;
-    .slide {
-        @hpadding: 48px;
-        h2 {
-            border-width: 0;
-        }
-        & .wrap {
-            .vertically-center;
-            left: 0;
-            right: 0;
-        }
-        &#title-slide {
-            text-align: center;
-            hgroup {
-                margin-bottom: 32px;
-                h1 {
-                    -moz-transform: none;
-                    position: static;
-                    top: 50%;
-                    margin-bottom: 10px;
-                    img {
-                        margin-bottom: 0;
-                    }
-                }
-                h2 {
-                    border-width: 0;
-                    color: #999999;
-                    font-size: 24px;
-                    font-weight: 100;
-                    letter-spacing: 2px;
-                    text-shadow: 1px 1px 1px #FFFFFF;
-                }
-            }
-        }
-        &.title-only {
-            text-align: center;
-            padding: 0;
-            & > h2 {
-                border-width: 0;
-                margin-left: -1 * @hpadding;
-                width: 100%;
-                padding-top: 0;
-                .vertically-center;
-            }
-        }
-        li {
-            background-color: #FFFFFF;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            float: left;
-            /*clear: left;*/
-            padding: 10px 20px;
-            list-style-type: none;
-            margin: 0 20px 20px 0;
-            font-size: 1.2em;
-            color: #444;
-            &.deck-before, &.deck-previous {
-                /*color: #666;*/
-                a {
-                    /*color: inherit;*/
-                    &:hover {
-                        color: @link-color-hover;
-                    }
-                }
-            }
-            &.deck-current {
-                border: 1px solid #AAAAAA;
-                box-shadow: 0 0 7px #666;
-                a {
-                    color: @link-color;
-                    &:hover {
-                        color: @link-color-hover;
-                    }
-                }
-            }
-            a {
-                text-decoration: none;
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
     }
 }
 
