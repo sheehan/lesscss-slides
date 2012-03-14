@@ -68,6 +68,12 @@
                       text-shadow: 1px 1px 1px #FFFFFF;
                   }
               }
+              .author {
+                position: absolute;
+                right: 100px;
+                bottom: 0;
+                font-size: 1.3em;
+              }
           }
           &.title-only {
               text-align: center;
@@ -128,7 +134,7 @@
     .editors {
         margin: 0 auto;
         width: @editors-width;
-        .editor {
+        .editor() {
               margin-top: 5px;
               width: (@editors-width - @editors-spacing) / 2;
               float: left;
